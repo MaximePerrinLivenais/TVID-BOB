@@ -28,4 +28,12 @@ def play_video_from_dir(dir_path: str, output_path: str, fps: int = 30) -> None:
 
     display.play_frames_as_video(image_list, output_path, fps = fps)
 
-play_video_from_dir(arg, 'test.mpg', 3)
+def test(dir_path: str) -> None:
+    image = converter.open_pgm_in_rgb_ppm(dir_path)
+    a, b = converter.bobbing(image)
+    import skimage.io as io
+
+    io.imsave('a.ppm', a)
+    io.imsave('b.ppm', b)
+
+test(arg)

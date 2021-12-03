@@ -24,5 +24,9 @@ def open_pgm_in_rgb_ppm(path: os.path) -> np.array:
 
     return rgb_image
 
-def bobbing(frames: np.array) -> np.array:
-    pass
+def bobbing(frame: np.array) -> np.array:
+    even_frame, odd_frame = frame[0::2], frame[1::2]
+    even_frame = even_frame.repeat(2, axis = 0)
+    odd_frame = odd_frame.repeat(2, axis = 0)
+
+    return even_frame, odd_frame
