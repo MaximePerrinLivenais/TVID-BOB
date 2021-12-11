@@ -2,6 +2,7 @@ import cv2 as cv
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import subprocess
 
 from typing import Optional
 
@@ -44,10 +45,11 @@ def display_images_from_dir(dir_path: str, deinterlacing: bool = False) -> None:
     for image in image_array:
         display_image(image)
 
-def create_video_from_dir(dir_path: str, output_path: str, deinterlacing: bool,
-                            dpi: int = 50, fps: int = 30, title: str = 'video',
-                            comment: Optional[str] = None, writer: str = 'ffmpeg'
-                            ) -> None:
+def create_video_from_dir(dir_path: str, output_path: str, deinterlacing: bool, fps: int) -> None:
     image_array = get_images_from_dir(dir_path, deinterlacing)
 
-    convert.images_to_video(image_array, output_path, dpi, fps, title, comment, writer)
+
+    convert.images_to_video(image_array, output_path, fps)
+
+def play_video(video_path):
+    subprocess.run(['vlc', video_path])

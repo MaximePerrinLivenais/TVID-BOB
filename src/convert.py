@@ -3,6 +3,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import shutil
 import skimage.color as color
 import subprocess
 
@@ -38,16 +39,19 @@ def bobbing(frame: np.array, top_field_first: bool = True) -> Tuple[np.array, np
     return odd_frame, even_frame
 
 def video_to_frames(video_path: str, output_path: str) -> None:
+    if os.path.exists(output_path):
+        shutil.rmtree(output_path)
+
     os.mkdir(output_path)
     os.chdir(output_path)
+    video_path = os.path.join('..', video_path)
     subprocess.run(['./../tools/mpeg2dec/src/mpeg2dec', video_path, '-o', 'pgm'])
     os.chdir('..')
 
-def images_to_video(frame_array: np.array, output_path: str, dpi: int, fps: int,
-                    title: str, comment: Optional[str], writer: str
-                    ) -> None:
+def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
 
     _, height, width, _ = frame_array.shape
+    dpi = (height / 19) * (width / 33)
     figure, axes = plt.subplots(figsize = (width / dpi, height / dpi))
 
     figure.subplots_adjust(left = 0,
@@ -58,14 +62,14 @@ def images_to_video(frame_array: np.array, output_path: str, dpi: int, fps: int,
                             hspace = None,
                         )
 
-    mpl_writer = mpl.animation.writers[writer]
-    metadata = { 'title': title, 'artist': __name__, 'comment': comment, }
+    mpl_writer = mpl.animation.writers['ffmpeg']
+    metadata = { 'title': None, 'artist': __name__, 'comment': None, }
     mpl_writer = mpl_writer(fps = fps,
                             metadata = { k: v for k, v in metadata.items() if v is not None },
                             )
 
     iterator = iter(frame_array)
-    with mpl_writer.saving(figure, output_path, dpi = dpi):
+    with mpl_writer.saving(figure, output_path, dpi):
         plot = axes.imshow(next(iterator), interpolation = 'nearest')
         mpl_writer.grab_frame()
 

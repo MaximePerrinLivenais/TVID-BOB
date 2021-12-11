@@ -1,11 +1,17 @@
-import sys
-
+import convert
 import image_io
+import options
 
-command = sys.argv[1]
-dir_path = sys.argv[2]
+if __name__ == '__main__':
 
-if command == 'display':
-    image_io.display_images_from_dir(dir_path, deinterlacing = True)
-elif command == 'video':
-    image_io.create_video_from_dir(dir_path, sys.argv[3], True)
+    parser = options.get_options_parser()
+    args = parser.parse_args()
+
+    frames_dir = 'output-frames/'
+    convert.video_to_frames(args.video_path, frames_dir)
+
+    if args.images:
+        image_io.display_images_from_dir(frames_dir, deinterlacing = args.deinterlace)
+    elif args.video:
+        image_io.create_video_from_dir(frames_dir, args.output, args.deinterlace, args.ips)
+        image_io.play_video(args.output)
