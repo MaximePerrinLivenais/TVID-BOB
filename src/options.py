@@ -11,7 +11,7 @@ def get_options_parser():
                             action = 'store_true')
     parser.add_argument('--ips', help = 'images per seconds of the stream', type = int,
                             default = 25)
-    parser.add_argument('-t', '--ts', help = 'demux a TS stream', type = int)
+    parser.add_argument('-t', '--ts', help = 'demux a TS stream', type = str)
 
     command = parser.add_mutually_exclusive_group(required = True);
     command.add_argument('--images', help = 'display images composing the stream',
