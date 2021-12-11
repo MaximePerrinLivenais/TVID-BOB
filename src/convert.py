@@ -38,14 +38,19 @@ def bobbing(frame: np.array, top_field_first: bool = True) -> Tuple[np.array, np
         return even_frame, odd_frame
     return odd_frame, even_frame
 
-def video_to_frames(video_path: str, output_path: str) -> None:
+def video_to_frames(video_path: str, output_path: str, ts_pid: int = None) -> None:
     if os.path.exists(output_path):
         shutil.rmtree(output_path)
 
     os.mkdir(output_path)
     os.chdir(output_path)
     video_path = os.path.join('..', video_path)
-    subprocess.run(['./../tools/mpeg2dec/src/mpeg2dec', video_path, '-o', 'pgm'])
+
+    command = ['./../tools/mpeg2dec/src/mpeg2dec', video_path, '-o', 'pgm']
+    if ts_pid is not None:
+        command.extend(['-t', ts_pid])
+
+    subprocess.run(command)
     os.chdir('..')
 
 def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
