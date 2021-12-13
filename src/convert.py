@@ -29,7 +29,7 @@ def pgm_to_rgb_ppm(frame: np.array) -> np.array:
 
     return rgb_frame
 
-def bobbing(frame: np.array, top_field_first: bool = True) -> Tuple[np.array, np.array]:
+def bobbing(frame: np.array, top_field_first: bool) -> Tuple[np.array, np.array]:
     even_frame, odd_frame = frame[0::2], frame[1::2]
     even_frame = even_frame.repeat(2, axis = 0)
     odd_frame = odd_frame.repeat(2, axis = 0)
@@ -50,6 +50,7 @@ def video_to_frames(video_path: str, output_path: str, ts_pid: int = None) -> No
     if ts_pid is not None:
         command.extend(['-t', ts_pid])
 
+    print(command)
     subprocess.run(command)
     os.chdir('..')
 

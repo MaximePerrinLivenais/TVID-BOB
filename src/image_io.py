@@ -19,7 +19,7 @@ def get_frame_paths_from_dir(dir_path: str) -> list[str]:
 
     return path_list
 
-def get_images_from_dir(dir_path: str, deinterlacing: bool) -> np.array:
+def get_images_from_dir(dir_path: str, deinterlacing: bool, top_field_first: bool) -> np.array:
     path_list = get_frame_paths_from_dir(dir_path)
 
     image_list = []
@@ -27,7 +27,7 @@ def get_images_from_dir(dir_path: str, deinterlacing: bool) -> np.array:
         image = convert.pgm_to_rgb_ppm(open_grayscale(path))
 
         if deinterlacing:
-            first_image, second_image = convert.bobbing(image)
+            first_image, second_image = convert.bobbing(image, top_field_first)
             image_list.append(first_image)
             image_list.append(second_image)
         else:
@@ -39,14 +39,16 @@ def display_image(image: np.array) -> None:
     plt.imshow(image)
     plt.show()
 
-def display_images_from_dir(dir_path: str, deinterlacing: bool = False) -> None:
-    image_array = get_images_from_dir(dir_path, deinterlacing)
+def display_images_from_dir(dir_path: str, deinterlacing: bool,
+                            top_field_first: bool = True) -> None:
+    image_array = get_images_from_dir(dir_path, deinterlacing, top_field_first)
 
     for image in image_array:
         display_image(image)
 
-def create_video_from_dir(dir_path: str, output_path: str, deinterlacing: bool, fps: int) -> None:
-    image_array = get_images_from_dir(dir_path, deinterlacing)
+def create_video_from_dir(dir_path: str, output_path: str, deinterlacing: bool,
+                            fps: int, top_field_first: bool = True) -> None:
+    image_array = get_images_from_dir(dir_path, deinterlacing, top_field_first)
 
 
     convert.images_to_video(image_array, output_path, fps)
