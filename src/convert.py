@@ -110,7 +110,7 @@ def deinterlace(frame: np.array, previous_frame: np.array, top_field_first: bool
             y, x = j + tile_shape, i + tile_shape
             tile = motion_estimation[j:y, i:x]
 
-            if tile.mean() < 0.2:
+            if tile.mean() < 0.4:
                 first_frame[2*j:2*y, i:x] = first_frame_weave[2*j:2*y, i:x]
                 second_frame[2*j:2*y, i:x] = second_frame_weave[2*j:2*y, i:x]
-    return first_frame_weave, second_frame_weave
+    return first_frame, second_frame
