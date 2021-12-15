@@ -14,8 +14,9 @@ if __name__ == '__main__':
         frames_dir = args.path
 
     if args.images:
-        image_io.display_images_from_dir(frames_dir, args.deinterlace, not args.bff)
+        image_io.display_images_from_dir(frames_dir, args.deinterlace or args.bob,
+                                            args.bob, not args.bff)
     elif args.video:
-        image_io.create_video_from_dir(frames_dir, args.output, args.deinterlace,
-                                        args.ips, not args.bff)
+        image_io.create_video_from_dir(frames_dir, args.output, args.deinterlace or args.bob,
+                                        args.bob, args.ips, not args.bff)
         image_io.play_video(args.output)

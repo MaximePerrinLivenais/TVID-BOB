@@ -1,6 +1,7 @@
 import cv2 as cv
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+import motion
 import numpy as np
 import os
 import shutil
@@ -28,6 +29,13 @@ def pgm_to_rgb_ppm(frame: np.array) -> np.array:
     rgb_frame = np.clip(color.yuv2rgb(yuv_frame), 0., 255.).astype(np.uint8)
 
     return rgb_frame
+
+def weave_mixing(first_field: np.array, second_field: np.array) -> np.array:
+    frame = np.stack([first_field, second_field], axis = 2)
+    frame = frame.swapaxes(1, 2)
+
+    height, width, channels = first_field.shape
+    return frame.reshape(2 * height, width, channels)
 
 def bobbing(frame: np.array, top_field_first: bool) -> Tuple[np.array, np.array]:
     even_frame, odd_frame = frame[0::2], frame[1::2]
@@ -82,3 +90,27 @@ def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
         for frame in iterator:
             plot.set_data(frame)
             mpl_writer.grab_frame()
+
+def deinterlace(frame: np.array, previous_frame: np.array, top_field_first: bool) -> np.array:
+    fields = (frame[0::2], frame[1::2], previous_frame[0::2]) if top_field_first \
+                else (frame[1::2], frame[0::2], previous_frame[1::2])
+    first_field, second_field, previous_field = fields
+
+    first_frame, second_frame = bobbing(frame, top_field_first)
+
+    first_frame_weave = weave_mixing(previous_field, first_field)
+    second_frame_weave = weave_mixing(first_field, second_field)
+
+    tile_shape = 16
+    motion_estimation = motion.motion_estimation(first_field.mean(axis = 2),
+                                                    second_field.mean(axis = 2))
+    motion_height, motion_width = motion_estimation.shape
+    for j in range(0, motion_height, tile_shape):
+        for i in range(0, motion_width, tile_shape):
+            y, x = j + tile_shape, i + tile_shape
+            tile = motion_estimation[j:y, i:x]
+
+            if tile.mean() < 0.2:
+                first_frame[2*j:2*y, i:x] = first_frame_weave[2*j:2*y, i:x]
+                second_frame[2*j:2*y, i:x] = second_frame_weave[2*j:2*y, i:x]
+    return first_frame_weave, second_frame_weave

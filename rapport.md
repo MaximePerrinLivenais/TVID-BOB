@@ -47,7 +47,13 @@
 
 2. Done
 
-3. Sa mère j'arrive pas à voir la diff.
+3. Nous avons pu remarquer une différence de vitesse entre les effets spéciaux
+    et le reste de la scène. Ce qui nous a permis de voir cette différence est
+    le moment où la petite fille décide de prendre sa fourchette en main le
+    mouvement se saccade. Nous avons donc l'impression que pour pouvoir garder
+    des effets spéciaux qui seraient pas trop rapide, certaines images ont été
+    déboublés pour que le nombre de frames d'effets spéciaux soit égal à celle
+    de la scène originale.
 
 4. Le premier PID vidéo de ctv.ts est 0x3e9.
 
@@ -57,4 +63,8 @@
 
 ## D - Vers un meilleur désentrelaceur
 
+1. Done reste selection du seuil
 
+2. Mollot l'asticot
+
+3. J'ai dit mollot le poto
