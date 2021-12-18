@@ -1,0 +1,629 @@
+libmpeg2-0.5.1 - by Michel Lespinasse <walken@zoy.org> and Aaron Holtzman
+      5c SEQUENCE MPEG2 MP@ML 720x480 chroma 360x240 fps 29.97 maxBps 300000 vbv 229376 picture 720x480 display 720x480 pixel 8x9 guessed 10x11
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+      64 GOP CLOSED  0: 0: 0: 0
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+      84 PICTURE I fields 2 TFF time_ref 2 offset 0/0 0/0
+
+frame 2 is top field first
+FLAGS                           FLAGS FLAGS 9
+frame period is equal to 29
+
+    5084 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    50c4 PICTURE B fields 2 TFF time_ref 0 offset 0/0 0/0
+
+frame 0 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+    6c84 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    6cc4 PICTURE B fields 2 TFF time_ref 1 offset 0/0 0/0
+
+frame 1 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+    7804 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    7844 PICTURE P fields 2 TFF time_ref 5 offset 0/0 0/0
+
+frame 5 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+    8ec4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    8f04 PICTURE B fields 2 TFF time_ref 3 offset 0/0 0/0
+
+frame 3 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+    9984 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    99c4 PICTURE B fields 2 TFF time_ref 4 offset 0/0 0/0
+
+frame 4 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+    a3c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    a404 PICTURE P fields 2 TFF time_ref 8 offset 0/0 0/0
+
+frame 8 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+    c244 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    c284 PICTURE B fields 2 TFF time_ref 6 offset 0/0 0/0
+
+frame 6 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+    e1c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+    e204 PICTURE B fields 2 TFF time_ref 7 offset 0/0 0/0
+
+frame 7 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   10904 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   10944 PICTURE P fields 2 TFF time_ref 11 offset 0/0 0/0
+
+frame 11 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   13104 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   13144 PICTURE B fields 2 TFF time_ref 9 offset 0/0 0/0
+
+frame 9 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   15704 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   15744 PICTURE B fields 2 TFF time_ref 10 offset 0/0 0/0
+
+frame 10 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   17e44 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   17e84 PICTURE P fields 2 TFF time_ref 14 offset 0/0 0/0
+
+frame 14 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   1a544 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   1a584 PICTURE B fields 2 TFF time_ref 12 offset 0/0 0/0
+
+frame 12 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   1cc84 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   1ccc4 PICTURE B fields 2 TFF time_ref 13 offset 0/0 0/0
+
+frame 13 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   1f384 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   1f3dc SEQUENCE_REPEATED MPEG2 MP@ML 720x480 chroma 360x240 fps 29.97 maxBps 300000 vbv 229376 picture 720x480 display 720x480 pixel 8x9 guessed 10x11
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   1f3e4 GOP  0: 0: 0:15
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   1f404 PICTURE I fields 2 TFF time_ref 2 offset 0/0 0/0
+
+frame 2 is top field first
+FLAGS                           FLAGS FLAGS 9
+frame period is equal to 29
+
+   27384 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   273c4 PICTURE B fields 2 TFF time_ref 0 offset 0/0 0/0
+
+frame 0 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   28304 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   28344 PICTURE B fields 2 TFF time_ref 1 offset 0/0 0/0
+
+frame 1 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   29204 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   29244 PICTURE P fields 2 TFF time_ref 5 offset 0/0 0/0
+
+frame 5 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   2b584 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   2b5c4 PICTURE B fields 2 TFF time_ref 3 offset 0/0 0/0
+
+frame 3 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   2c6c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   2c704 PICTURE B fields 2 TFF time_ref 4 offset 0/0 0/0
+
+frame 4 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   2de04 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   2de44 PICTURE P fields 2 TFF time_ref 8 offset 0/0 0/0
+
+frame 8 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   30544 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   30584 PICTURE B fields 2 TFF time_ref 6 offset 0/0 0/0
+
+frame 6 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   32c44 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   32c84 PICTURE B fields 2 TFF time_ref 7 offset 0/0 0/0
+
+frame 7 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   35384 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   353c4 PICTURE P fields 2 TFF time_ref 11 offset 0/0 0/0
+
+frame 11 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   37a84 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   37ac4 PICTURE B fields 2 TFF time_ref 9 offset 0/0 0/0
+
+frame 9 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   3a184 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   3a1c4 PICTURE B fields 2 TFF time_ref 10 offset 0/0 0/0
+
+frame 10 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   3c8c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   3c904 PICTURE P fields 2 TFF time_ref 14 offset 0/0 0/0
+
+frame 14 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   3efc4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   3f004 PICTURE B fields 2 TFF time_ref 12 offset 0/0 0/0
+
+frame 12 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   41704 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   41744 PICTURE B fields 2 TFF time_ref 13 offset 0/0 0/0
+
+frame 13 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   43e04 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   43e5c SEQUENCE_REPEATED MPEG2 MP@ML 720x480 chroma 360x240 fps 29.97 maxBps 300000 vbv 229376 picture 720x480 display 720x480 pixel 8x9 guessed 10x11
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   43e64 GOP  0: 0: 1: 0
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   43e84 PICTURE I fields 2 TFF time_ref 2 offset 0/0 0/0
+
+frame 2 is top field first
+FLAGS                           FLAGS FLAGS 9
+frame period is equal to 29
+
+   4b744 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   4b784 PICTURE B fields 2 TFF time_ref 0 offset 0/0 0/0
+
+frame 0 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   4cac4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   4cb04 PICTURE B fields 2 TFF time_ref 1 offset 0/0 0/0
+
+frame 1 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   4ddc4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   4de04 PICTURE P fields 2 TFF time_ref 5 offset 0/0 0/0
+
+frame 5 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   4ffc4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   50004 PICTURE B fields 2 TFF time_ref 3 offset 0/0 0/0
+
+frame 3 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   51484 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   514c4 PICTURE B fields 2 TFF time_ref 4 offset 0/0 0/0
+
+frame 4 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   529c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   52a04 PICTURE P fields 2 TFF time_ref 8 offset 0/0 0/0
+
+frame 8 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   54fc4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   55004 PICTURE B fields 2 TFF time_ref 6 offset 0/0 0/0
+
+frame 6 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   576c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   57704 PICTURE B fields 2 TFF time_ref 7 offset 0/0 0/0
+
+frame 7 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   59e04 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   59e44 PICTURE P fields 2 TFF time_ref 11 offset 0/0 0/0
+
+frame 11 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   5c504 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   5c544 PICTURE B fields 2 TFF time_ref 9 offset 0/0 0/0
+
+frame 9 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   5ec44 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   5ec84 PICTURE B fields 2 TFF time_ref 10 offset 0/0 0/0
+
+frame 10 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   61344 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   61384 PICTURE P fields 2 TFF time_ref 14 offset 0/0 0/0
+
+frame 14 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   63a44 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   63a84 PICTURE B fields 2 TFF time_ref 12 offset 0/0 0/0
+
+frame 12 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   66184 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   661c4 PICTURE B fields 2 TFF time_ref 13 offset 0/0 0/0
+
+frame 13 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   68884 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   688dc SEQUENCE_REPEATED MPEG2 MP@ML 720x480 chroma 360x240 fps 29.97 maxBps 300000 vbv 229376 picture 720x480 display 720x480 pixel 8x9 guessed 10x11
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   688e4 GOP  0: 0: 1:15
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   68904 PICTURE I fields 2 TFF time_ref 2 offset 0/0 0/0
+
+frame 2 is top field first
+FLAGS                           FLAGS FLAGS 9
+frame period is equal to 29
+
+   705c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   70604 PICTURE B fields 2 TFF time_ref 0 offset 0/0 0/0
+
+frame 0 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   71d44 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   71d84 PICTURE B fields 2 TFF time_ref 1 offset 0/0 0/0
+
+frame 1 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   73544 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   73584 PICTURE P fields 2 TFF time_ref 5 offset 0/0 0/0
+
+frame 5 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   75ac4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   75b04 PICTURE B fields 2 TFF time_ref 3 offset 0/0 0/0
+
+frame 3 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   772c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   77304 PICTURE B fields 2 TFF time_ref 4 offset 0/0 0/0
+
+frame 4 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   78e04 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   78e44 PICTURE P fields 2 TFF time_ref 8 offset 0/0 0/0
+
+frame 8 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   7ad84 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   7adc4 PICTURE B fields 2 TFF time_ref 6 offset 0/0 0/0
+
+frame 6 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   7c684 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   7c6c4 PICTURE B fields 2 TFF time_ref 7 offset 0/0 0/0
+
+frame 7 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   7e884 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   7e8c4 PICTURE P fields 2 TFF time_ref 11 offset 0/0 0/0
+
+frame 11 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   80f84 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   80fc4 PICTURE B fields 2 TFF time_ref 9 offset 0/0 0/0
+
+frame 9 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   836c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   83704 PICTURE B fields 2 TFF time_ref 10 offset 0/0 0/0
+
+frame 10 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   85dc4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   85e04 PICTURE P fields 2 TFF time_ref 14 offset 0/0 0/0
+
+frame 14 is top field first
+FLAGS                           FLAGS FLAGS 10
+frame period is equal to 29
+
+   884c4 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   88504 PICTURE B fields 2 TFF time_ref 12 offset 0/0 0/0
+
+frame 12 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+
+   8ac04 SLICE
+FLAGS                           FLAGS FLAGS 4294946816
+frame period is equal to 29
+
+   8ac44 PICTURE B fields 2 TFF time_ref 13 offset 0/0 0/0
+
+frame 13 is top field first
+FLAGS                           FLAGS FLAGS 11
+frame period is equal to 29
+

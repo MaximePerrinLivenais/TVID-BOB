@@ -12,7 +12,7 @@
     ensuite remarquer dans le dernier tier du ppm les 2 canaux UV, tous les
     2 samplés en 4:2:0.
 
-4. Check comment on fait.
+4. Done.
 
 5. Done
 
@@ -20,11 +20,11 @@
 
 7. Done
 
-8. Check comment on fait
+8. Done
 
-9. Pipe frame period dans le desentrelaceur
+9. Done
 
-10. Pipe les caracs de chaque frame dans le desentrelaceur
+10. Done
 
 ## B - Jouer un flux vidéo de chaîne d’infos américaine assez notoire
 
@@ -59,7 +59,9 @@
 
 5. Done
 
-6. Sa mère j'arrive pas à voir la diff.
+6. Meme apres desentrelacement certains moments du flux semblent encore entrelaces.
+    Ceci etait deja observable dans la video precedente au moment ou le pere pose
+    le gateau mais c'est desormais tres marque.
 
 ## D - Vers un meilleur désentrelaceur
 

@@ -54,16 +54,15 @@ def video_to_frames(video_path: str, output_path: str, ts_pid: int = None) -> No
     os.chdir(output_path)
     video_path = os.path.join('..', video_path)
 
-    command = ['./../tools/mpeg2dec/src/mpeg2dec', video_path, '-o', 'pgm']
+    command = ['./../src/tools/mpeg2dec/src/mpeg2dec', video_path, '-o', 'pgm']
     if ts_pid is not None:
         command.extend(['-t', ts_pid])
 
-    print(command)
-    subprocess.run(command)
+    with open('../frames.meta', 'w') as outfile:
+        subprocess.run(command, stdout = outfile)
     os.chdir('..')
 
 def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
-
     _, height, width, _ = frame_array.shape
     dpi = (height / 19) * (width / 33)
     figure, axes = plt.subplots(figsize = (width / dpi, height / dpi))
@@ -91,7 +90,8 @@ def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
             plot.set_data(frame)
             mpl_writer.grab_frame()
 
-def deinterlace(frame: np.array, previous_frame: np.array, top_field_first: bool) -> np.array:
+def deinterlace(frame: np.array, previous_frame: np.array, top_field_first: bool,
+                    threshold: float) -> np.array:
     fields = (frame[0::2], frame[1::2], previous_frame[0::2]) if top_field_first \
                 else (frame[1::2], frame[0::2], previous_frame[1::2])
     first_field, second_field, previous_field = fields
@@ -105,12 +105,14 @@ def deinterlace(frame: np.array, previous_frame: np.array, top_field_first: bool
     motion_estimation = motion.motion_estimation(first_field.mean(axis = 2),
                                                     second_field.mean(axis = 2))
     motion_height, motion_width = motion_estimation.shape
+
+    threshold = 0.2 if threshold is None else threshold
     for j in range(0, motion_height, tile_shape):
         for i in range(0, motion_width, tile_shape):
             y, x = j + tile_shape, i + tile_shape
             tile = motion_estimation[j:y, i:x]
 
-            if tile.mean() < 0.4:
+            if tile.mean() < threshold:
                 first_frame[2*j:2*y, i:x] = first_frame_weave[2*j:2*y, i:x]
                 second_frame[2*j:2*y, i:x] = second_frame_weave[2*j:2*y, i:x]
     return first_frame, second_frame
