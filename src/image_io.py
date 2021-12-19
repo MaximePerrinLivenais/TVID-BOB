@@ -20,12 +20,21 @@ def get_frame_paths_from_dir(dir_path: str) -> list[str]:
 
     return path_list
 
-def get_images_from_dir(dir_path: str, deinterlacing: bool, bob: bool,
-                            threshold:float, frames_meta) -> np.array:
+def get_images_from_dir(dir_path: str) ->np.array:
     path_list = get_frame_paths_from_dir(dir_path)
 
     image_list = []
-    previous_image = convert.pgm_to_rgb_ppm(open_grayscale(path_list[0]))
+    for path in path_list:
+        image = convert.pgm_to_rgb_ppm(open_grayscale(path))
+
+        image_list.append(image)
+
+    return np.array(image_list)
+
+def get_images_from_dir_bob(dir_path: str, frames_meta) -> np.array:
+    path_list = get_frame_paths_from_dir(dir_path)
+
+    image_list = []
     meta_index, progressive_sequence = 0, 0
     for path in path_list:
         image = convert.pgm_to_rgb_ppm(open_grayscale(path))
@@ -38,18 +47,54 @@ def get_images_from_dir(dir_path: str, deinterlacing: bool, bob: bool,
 
         if meta[1]:
             image_list.append(image)
-        elif deinterlacing and bob:
+        else:
             first_image, second_image = convert.bobbing(image, meta[2])
             image_list.append(first_image)
             image_list.append(second_image)
-        elif deinterlacing:
-            first_image, second_image = convert.deinterlace(image, previous_image,
-                                                            meta[2], threshold)
+
+            if meta[3]:
+                image_list.append(first_image)
+    return np.array(image_list)
+
+def get_images_from_dir_X(dir_path: str, threshold:float, frames_meta) -> np.array:
+    path_list = get_frame_paths_from_dir(dir_path)
+
+    image = convert.pgm_to_rgb_ppm(open_grayscale(path_list[0]))
+    first_image, second_image = convert.bobbing(image, frames_meta[0][2])
+    image_list = [first_image, second_image]
+    prev_bf = image[1::2]
+    next_image = convert.pgm_to_rgb_ppm(open_grayscale(path_list[1]))
+
+    meta_index, progressive_sequence = 0, 0
+    for index in range(2, len(path_list) - 1):
+        image = next_image
+        next_image = convert.pgm_to_rgb_ppm(open_grayscale(path_list[index]))
+
+        while frames_meta[meta_index][0]:
+            progressive_sequence = frames_meta[meta_index]
+            meta_index += 1
+        meta = frames_meta[meta_index]
+        meta_index += 1
+
+        if meta[1]:
+            image_list.append(image)
+        else:
+            tf, bf = image[0::2], image[1::2]
+            next_tf = next_image[0::2]
+
+            top_field = convert.deinterlace(prev_bf, tf, bf, threshold, True)
+            bottom_field = convert.deinterlace(tf, bf, next_tf, threshold, False)
+
+            first_image, second_image = (top_field, bottom_field) if meta[2] \
+                                        else (bottom_field, top_field)
+
             image_list.append(first_image)
             image_list.append(second_image)
-            previous_image = image
-        else:
-            image_list.append(image)
+
+            if meta[3]:
+                image_list.append(first_image)
+
+        prev_bf = image[1::2]
 
     return np.array(image_list)
 
@@ -59,14 +104,24 @@ def display_image(image: np.array) -> None:
 
 def display_images_from_dir(dir_path: str, deinterlacing: bool, bob: bool,
                             threshold:float, frames_meta) -> None:
-    image_array = get_images_from_dir(dir_path, deinterlacing, bob, threshold, frames_meta)
+    if not deinterlacing:
+        image_array = get_images_from_dir(dir_path)
+    elif bob:
+        image_array = get_images_from_dir_bob(dir_path, frames_meta)
+    else:
+        image_array = get_images_from_dir_X(dir_path, threshold, frames_meta)
 
     for image in image_array:
         display_image(image)
 
 def create_video_from_dir(dir_path: str, output_path: str, deinterlacing: bool,
                             bob: bool, fps: int, threshold: float, frames_meta) -> None:
-    image_array = get_images_from_dir(dir_path, deinterlacing, bob, threshold, frames_meta)
+    if not deinterlacing:
+        image_array = get_images_from_dir(dir_path)
+    elif bob:
+        image_array = get_images_from_dir_bob(dir_path, frames_meta)
+    else:
+        image_array = get_images_from_dir_X(dir_path, threshold, frames_meta)
 
     if fps is None:
         for meta in frames_meta:

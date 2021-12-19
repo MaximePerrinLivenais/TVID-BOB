@@ -1,7 +1,6 @@
 import cv2 as cv
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import motion
 import numpy as np
 import os
 import shutil
@@ -38,13 +37,14 @@ def weave_mixing(first_field: np.array, second_field: np.array) -> np.array:
     return frame.reshape(2 * height, width, channels)
 
 def bobbing(frame: np.array, top_field_first: bool) -> Tuple[np.array, np.array]:
-    even_frame, odd_frame = frame[0::2], frame[1::2]
-    even_frame = even_frame.repeat(2, axis = 0)
-    odd_frame = odd_frame.repeat(2, axis = 0)
+    top_field, bottom_field = frame[0::2], frame[1::2]
+
+    top_field = top_field.repeat(2, axis = 0)
+    bottom_field = bottom_field.repeat(2, axis = 0)
 
     if top_field_first:
-        return even_frame, odd_frame
-    return odd_frame, even_frame
+        return top_field, bottom_field
+    return bottom_field, top_field
 
 def video_to_frames(video_path: str, output_path: str, ts_pid: int = None) -> None:
     if os.path.exists(output_path):
@@ -90,29 +90,27 @@ def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
             plot.set_data(frame)
             mpl_writer.grab_frame()
 
-def deinterlace(frame: np.array, previous_frame: np.array, top_field_first: bool,
-                    threshold: float) -> np.array:
-    fields = (frame[0::2], frame[1::2], previous_frame[0::2]) if top_field_first \
-                else (frame[1::2], frame[0::2], previous_frame[1::2])
-    first_field, second_field, previous_field = fields
+def deinterlace(prev_field, field, next_field, threshold: float, top_field):
 
-    first_frame, second_frame = bobbing(frame, top_field_first)
+    bob_field = field.repeat(2, axis = 0)
+    weave_field = weave_mixing(field, prev_field) if top_field \
+                    else weave_mixing(prev_field, field)
 
-    first_frame_weave = weave_mixing(previous_field, first_field)
-    second_frame_weave = weave_mixing(first_field, second_field)
+    threshold = 40.0 if threshold is None else threshold
 
+    field_height, field_width, _ = field.shape
     tile_shape = 16
-    motion_estimation = motion.motion_estimation(first_field.mean(axis = 2),
-                                                    second_field.mean(axis = 2))
-    motion_height, motion_width = motion_estimation.shape
-
-    threshold = 0.2 if threshold is None else threshold
-    for j in range(0, motion_height, tile_shape):
-        for i in range(0, motion_width, tile_shape):
+    num_pixels = tile_shape * tile_shape
+    for j in range(0, field_height, tile_shape):
+        for i in range(0, field_width, tile_shape):
             y, x = j + tile_shape, i + tile_shape
-            tile = motion_estimation[j:y, i:x]
 
-            if tile.mean() < threshold:
-                first_frame[2*j:2*y, i:x] = first_frame_weave[2*j:2*y, i:x]
-                second_frame[2*j:2*y, i:x] = second_frame_weave[2*j:2*y, i:x]
-    return first_frame, second_frame
+            prev_tile = prev_field[j:y, i:x]
+            next_tile = next_field[j:y, i:x]
+
+            EBMA = np.sum((next_tile - prev_tile) ** 2)
+
+            if EBMA / num_pixels < threshold:
+                bob_field[2*j:2*y, i:x] = weave_field[2*j:2*y, i:x]
+
+    return bob_field

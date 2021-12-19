@@ -19,10 +19,12 @@ if __name__ == '__main__':
     frames_meta = parse_logs.parse_logs(meta_file)
     print(len(frames_meta))
 
+    print(args.deinterlace)
+
     if args.images:
-        image_io.display_images_from_dir(frames_dir, args.deinterlace or args.bob,
+        image_io.display_images_from_dir(frames_dir, not args.raw,
                                             args.bob, args.deinterlace, frames_meta)
     elif args.video:
-        image_io.create_video_from_dir(frames_dir, args.output, args.deinterlace or args.bob,
+        image_io.create_video_from_dir(frames_dir, args.output, not args.raw,
                                         args.bob, args.ips, args.deinterlace, frames_meta)
         image_io.play_video(args.output)

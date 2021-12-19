@@ -19,6 +19,7 @@ def get_options_parser():
                                 type = float, default = None, nargs = '?')
     deinterlacer.add_argument('--bob', help = 'deinterlace the video stream using bob',
                                 action = 'store_true')
+    deinterlacer.add_argument('--raw', action = 'store_true')
 
     command = parser.add_mutually_exclusive_group(required = True);
     command.add_argument('--images', help = 'display images composing the stream',
