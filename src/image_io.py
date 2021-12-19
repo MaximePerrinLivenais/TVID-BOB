@@ -5,17 +5,19 @@ import os
 import subprocess
 import sys
 
-from typing import Optional
+from typing import Optional, List
 
 import convert
 
 def open_grayscale(path: str) -> np.array:
     return cv.imread(path, cv.IMREAD_GRAYSCALE)
 
-def get_frame_paths_from_dir(dir_path: str) -> list[str]:
+def get_frame_paths_from_dir(dir_path: str) -> List[str]:
     path_list = []
 
-    for frame_name in os.listdir(dir_path):
+    numerical_sort = lambda key: int(key.split('.')[0])
+    for frame_name in sorted(os.listdir(dir_path), key = numerical_sort):
+        print(frame_name)
         path_list.append(os.path.join(dir_path, frame_name))
 
     return path_list

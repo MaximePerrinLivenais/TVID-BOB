@@ -8,6 +8,7 @@ import skimage.color as color
 import subprocess
 
 from typing import Optional, Tuple
+from matplotlib import animation
 
 def pgm_to_rgb_ppm(frame: np.array) -> np.array:
     height, width = frame.shape
