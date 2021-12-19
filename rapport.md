@@ -61,12 +61,18 @@
 
 6. Meme apres desentrelacement certains moments du flux semblent encore entrelaces.
     Ceci etait deja observable dans la video precedente au moment ou le pere pose
-    le gateau mais c'est desormais tres marque.
+    le gateau mais c'est desormais tres marque. Nous pouvons aussi remarquer que
+    le jeu de lumiere provoque par l'helice qui tourne rend tres mal sur certains
+    personnages a des moments donnes et contribue a ne pas avoir le mouvement le
+    pluis fluide possible.
 
 ## D - Vers un meilleur désentrelaceur
 
-1. Done reste selection du seuil
+1. Done
 
-2. Mollot l'asticot
-
-3. J'ai dit mollot le poto
+2. La ou on peut observer le plus d'ameliorations ce sont dans la fluidite des
+    mouvements verticaux puisqu'on a pu a certains moments doubles la resolution
+    verticale. Nous avons pu aussi cree de l'information supplementaire entre
+    certains fields peu en mouvements. Nous avons donc potentiellement remplacer
+    des frames redondantes par des frames interpolant une position ainsi les
+    mouvements de la scene sont mieux echantillones.

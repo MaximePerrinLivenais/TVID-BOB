@@ -34,6 +34,7 @@ def get_images_from_dir(dir_path: str) ->np.array:
 def get_images_from_dir_bob(dir_path: str, frames_meta) -> np.array:
     path_list = get_frame_paths_from_dir(dir_path)
 
+
     image_list = []
     meta_index, progressive_sequence = 0, 0
     for path in path_list:
@@ -46,6 +47,10 @@ def get_images_from_dir_bob(dir_path: str, frames_meta) -> np.array:
         meta_index += 1
 
         if meta[1]:
+            #_, width, channels = image.shape
+            #padding_row = np.zeros((1, width, channels), dtype = np.uint8)
+            #image_list.append(np.concatenate((image, padding_row), axis = 0))
+
             image_list.append(image)
         else:
             first_image, second_image = convert.bobbing(image, meta[2])
@@ -66,7 +71,7 @@ def get_images_from_dir_X(dir_path: str, threshold:float, frames_meta) -> np.arr
     next_image = convert.pgm_to_rgb_ppm(open_grayscale(path_list[1]))
 
     meta_index, progressive_sequence = 0, 0
-    for index in range(2, len(path_list) - 1):
+    for index in range(2, len(path_list)):
         image = next_image
         next_image = convert.pgm_to_rgb_ppm(open_grayscale(path_list[index]))
 

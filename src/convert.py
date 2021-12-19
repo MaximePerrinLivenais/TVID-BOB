@@ -42,6 +42,12 @@ def bobbing(frame: np.array, top_field_first: bool) -> Tuple[np.array, np.array]
     top_field = top_field.repeat(2, axis = 0)
     bottom_field = bottom_field.repeat(2, axis = 0)
 
+    _, field_width, field_channels = frame.shape
+    padding_row = np.zeros((1, field_width, field_channels), dtype = np.uint8)
+
+    #top_field = np.concatenate((top_field, padding_row), axis = 0)
+    #bottom_field = np.concatenate((padding_row, bottom_field), axis = 0)
+
     if top_field_first:
         return top_field, bottom_field
     return bottom_field, top_field
@@ -63,6 +69,7 @@ def video_to_frames(video_path: str, output_path: str, ts_pid: int = None) -> No
     os.chdir('..')
 
 def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
+    print(frame_array.shape)
     _, height, width, _ = frame_array.shape
     dpi = (height / 19) * (width / 33)
     figure, axes = plt.subplots(figsize = (width / dpi, height / dpi))
