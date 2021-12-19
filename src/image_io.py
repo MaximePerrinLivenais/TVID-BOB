@@ -17,7 +17,6 @@ def get_frame_paths_from_dir(dir_path: str) -> List[str]:
 
     numerical_sort = lambda key: int(key.split('.')[0])
     for frame_name in sorted(os.listdir(dir_path), key = numerical_sort):
-        print(frame_name)
         path_list.append(os.path.join(dir_path, frame_name))
 
     return path_list

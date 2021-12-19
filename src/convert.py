@@ -70,7 +70,6 @@ def video_to_frames(video_path: str, output_path: str, ts_pid: int = None) -> No
     os.chdir('..')
 
 def images_to_video(frame_array: np.array, output_path: str, fps: int) -> None:
-    print(frame_array.shape)
     _, height, width, _ = frame_array.shape
     dpi = (height / 19) * (width / 33)
     figure, axes = plt.subplots(figsize = (width / dpi, height / dpi))
